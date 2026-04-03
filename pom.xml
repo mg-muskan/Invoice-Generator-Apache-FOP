@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.4.1</version>
+		<relativePath/>
+	</parent>
+
+	<groupId>com.pdfconverter</groupId>
+	<artifactId>invoice-generator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>invoice-generator</name>
+	<description>POC – Invoice PDF generation using Apache FOP with multi-script font support</description>
+
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+
+	<dependencies>
+		<!-- Web layer -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Apache FOP for XSL-FO → PDF rendering -->
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>fop</artifactId>
+			<version>2.10</version>
+			<exclusions>
+				<!-- Exclude legacy xml-apis; the JDK provides these via the platform module -->
+				<exclusion>
+					<groupId>xml-apis</groupId>
+					<artifactId>xml-apis</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Utilities -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.14.0</version>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.ttf</include>
+					<include>**/*.xconf</include>
+				</includes>
+			</resource>
+		</resources>
+	</build>
+
+</project>
