@@ -146,8 +146,8 @@ Generates and returns a PDF invoice.
 
 ```json
 {
-  "providerName":    "KALA KUL INTERNATIONAL",
-  "providerAddress": "14-B/45, Dev Nagar, New Delhi 110005, India",
+  "providerName":    "Provider",
+  "providerAddress": "Address - India",
   "logoUrl":         "https://example.com/logo.png",
 
   "orderNumber":     "00000088",
@@ -157,12 +157,12 @@ Generates and returns a PDF invoice.
   "payerName":       "Muskan Gupta",
   "payerContact":    "9123456789",
   "payerEmail":      "muskan@example.com",
-  "shippingAddress": "Satna, Mizoram, India - 485001",
-  "billingAddress":  "Satna, Mizoram, India - 485001",
+  "shippingAddress": "India",
+  "billingAddress":  "India",
 
   "items": [
     {
-      "description":  "ಶ್ರೀ ಕನಕದಾಸರ ನಳ ಚರಿತ್ರೆ | (6332)",
+      "description":  "Sri Kanakadhasara Nala Charitre",
       "unitPrice":    "₹ 50",
       "quantity":     1,
       "netAmount":    "₹ 50",
